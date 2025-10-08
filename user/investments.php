@@ -126,7 +126,7 @@ $maturity_amount = $stats['total_invested'] + $total_interest;
         <!-- Sidebar -->
         <nav id="sidebar" class="bg-dark">
             <div class="sidebar-header">
-                <h3><i class="bi bi-bank2"></i> <?php echo APP_NAME; ?></h3>
+                <h3><?php echo APP_NAME; ?></h3>
                 <small class="text-white-50">User Portal</small>
             </div>
 

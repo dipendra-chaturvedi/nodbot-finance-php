@@ -134,7 +134,7 @@ if ($payments_result) {
         <!-- Sidebar -->
         <nav id="sidebar" class="bg-dark">
             <div class="sidebar-header">
-                <h3><i class="bi bi-bank2"></i> <?php echo APP_NAME; ?></h3>
+                <h3><?php echo APP_NAME; ?></h3>
                 <small class="text-white-50">User Portal</small>
             </div>
 
@@ -203,7 +203,7 @@ if ($payments_result) {
             <div class="container-fluid p-4">
                 <div class="row mb-4">
                     <div class="col">
-                        <h2>Welcome back, <?php echo $user['name']; ?>! 👋</h2>
+                        <h2>Welcome , <?php echo $user['name']; ?></h2>
                         <p class="text-muted">Here's what's happening with your finances today.</p>
                     </div>
                 </div>

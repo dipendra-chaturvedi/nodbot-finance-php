@@ -131,7 +131,7 @@ $total_payments = mysqli_fetch_assoc($total_payments_result);
         <!-- Admin Sidebar -->
         <nav id="sidebar" class="bg-dark">
             <div class="sidebar-header">
-                <h3><i class="bi bi-shield-check"></i> <?php echo APP_NAME; ?></h3>
+                <h3></i> <?php echo APP_NAME; ?></h3>
                 <span class="badge">Admin Panel</span>
             </div>
 
