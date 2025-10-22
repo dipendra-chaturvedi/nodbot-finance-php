@@ -309,7 +309,7 @@ $maturity_amount = $stats['total_invested'] + $total_interest;
                                         <small class="text-white-50">1 to 120 months</small>
                                     </div>
 
-                                    <div class="mb-3">
+                                    <!-- <div class="mb-3">
                                         <label for="interest_rate" class="form-label">Interest Rate (%) *</label>
                                         <input type="number" class="form-control form-control-lg" 
                                                id="interest_rate" name="interest_rate" 
@@ -318,7 +318,7 @@ $maturity_amount = $stats['total_invested'] + $total_interest;
                                                min="0" 
                                                readonly>
                                         <small class="text-white-50">Annual interest rate</small>
-                                    </div>
+                                    </div> -->
 
                                     <div class="mb-4">
                                         <label for="notes" class="form-label">Notes (Optional)</label>
@@ -354,9 +354,9 @@ $maturity_amount = $stats['total_invested'] + $total_interest;
                                                 <th>Plan</th>
                                                 <th>Amount</th>
                                                 <th>Duration</th>
-                                                <th>Interest</th>
+                                                <!-- <th>Interest</th> -->
                                                 <th>Status</th>
-                                                <th>Actions</th>
+                                                <!-- <th>Actions</th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -387,16 +387,16 @@ $maturity_amount = $stats['total_invested'] + $total_interest;
                                                     echo '<td><strong>' . htmlspecialchars($row['plan']) . '</strong></td>';
                                                     echo '<td><strong class="text-primary">' . formatCurrency($row['amount']) . '</strong></td>';
                                                     echo '<td>' . $row['duration_months'] . ' months</td>';
-                                                    echo '<td><span class="badge bg-success">' . $row['interest_rate'] . '%</span></td>';
+                                                    // echo '<td><span class="badge bg-success">' . $row['interest_rate'] . '%</span></td>';
                                                     echo '<td><span class="badge bg-' . $status_class . '">' . ucfirst($row['status']) . '</span></td>';
-                                                    echo '<td>
-                                                            <a href="view-investment.php?id=' . $row['id'] . '" class="btn btn-sm btn-outline-primary" title="View Details">
-                                                                <i class="bi bi-eye"></i>
-                                                            </a>
-                                                            <a href="delete-investment.php?id=' . $row['id'] . '" class="btn btn-sm btn-outline-danger" title="Delete" onclick="return confirm(\'Are you sure?\')">
-                                                                <i class="bi bi-trash"></i>
-                                                            </a>
-                                                        </td>';
+                                                    // echo '<td>
+                                                    //         <a href="view-investment.php?id=' . $row['id'] . '" class="btn btn-sm btn-outline-primary" title="View Details">
+                                                    //             <i class="bi bi-eye"></i>
+                                                    //         </a>
+                                                    //         <a href="delete-investment.php?id=' . $row['id'] . '" class="btn btn-sm btn-outline-danger" title="Delete" onclick="return confirm(\'Are you sure?\')">
+                                                    //             <i class="bi bi-trash"></i>
+                                                    //         </a>
+                                                    //     </td>';
                                                     echo '</tr>';
                                                 }
                                             } else {

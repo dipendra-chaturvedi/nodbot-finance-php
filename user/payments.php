@@ -332,11 +332,11 @@ $loans_list = mysqli_query($conn, "SELECT id, purpose, amount FROM loans WHERE u
                                         <select class="form-select form-select-lg" id="payment_method" name="payment_method" required>
                                             <option value="">Select Method</option>
                                             <option value="Cash">Cash</option>
-                                            <option value="Bank Transfer">Bank Transfer</option>
+                                            <!-- <option value="Bank Transfer">Bank Transfer</option> -->
                                             <option value="UPI">UPI</option>
-                                            <option value="Credit Card">Credit Card</option>
-                                            <option value="Debit Card">Debit Card</option>
-                                            <option value="Net Banking">Net Banking</option>
+                                            <!-- <option value="Credit Card">Credit Card</option> -->
+                                            <!-- <option value="Debit Card">Debit Card</option> -->
+                                            <!-- <option value="Net Banking">Net Banking</option> -->
                                         </select>
                                     </div>
 

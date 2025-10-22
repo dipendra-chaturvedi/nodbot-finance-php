@@ -285,7 +285,7 @@ if ($payments_result) {
                                 <th>Plan</th>
                                 <th>Amount</th>
                                 <th>Duration</th>
-                                <th>Interest Rate</th>
+                                <!-- <th>Interest Rate</th> -->
                                 <th>Status</th>
                                 <th>Date</th>
                             </tr>
@@ -311,7 +311,7 @@ if ($payments_result) {
                                     echo '<td><strong>' . htmlspecialchars($row['plan']) . '</strong></td>';
                                     echo '<td>' . formatCurrency($row['amount']) . '</td>';
                                     echo '<td>' . $row['duration_months'] . ' months</td>';
-                                    echo '<td><span class="badge bg-primary">' . $row['interest_rate'] . '%</span></td>';
+                                    // echo '<td><span class="badge bg-primary">' . $row['interest_rate'] . '%</span></td>';
                                     echo '<td><span class="badge bg-' . $status_class . '">' . ucfirst($row['status']) . '</span></td>';
                                     echo '<td>' . date('M d, Y', strtotime($row['investment_date'])) . '</td>';
                                     echo '</tr>';

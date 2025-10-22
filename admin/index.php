@@ -103,7 +103,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_type'] === 'admin') {
                             </button>
                         </form>
 
-                        <hr>
+                        <!-- <hr>
 
                         <div class="text-center">
                             <p class="mb-2">
@@ -115,7 +115,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_type'] === 'admin') {
                                 <i class="bi bi-arrow-left"></i> 
                                 <a href="../index.php" class="text-decoration-none">Back to User Login</a>
                             </p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

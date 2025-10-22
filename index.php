@@ -40,7 +40,9 @@ if (isset($_SESSION['user_id'])) {
                         <div class="text-center mb-4">
                             <i class="bi bi-bank2 text-primary" style="font-size: 3rem;"></i>
                             <h2 class="fw-bold mt-3"><?php echo APP_NAME; ?></h2>
-                            <p class="text-muted">Welcome back! Please login to your account</p>
+                            <span class="admin-badge">
+                                <i class="bi bi-shield-check"></i> User Panel
+                            </span>
                         </div>
 
                         <?php
@@ -92,11 +94,11 @@ if (isset($_SESSION['user_id'])) {
                             <p class="mb-2">Don't have an account? 
                                 <a href="register.php" class="text-decoration-none fw-bold">Register here</a>
                             </p>
-                            <p class="mb-0">
+                            <!-- <p class="mb-0">
                                 <a href="admin/" class="text-muted text-decoration-none">
                                     <i class="bi bi-shield-lock"></i> Admin Login
                                 </a>
-                            </p>
+                            </p> -->
                         </div>
                     </div>
                 </div>
