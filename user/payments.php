@@ -39,6 +39,7 @@ $loans_list = mysqli_query($conn, "SELECT id, purpose, amount FROM loans WHERE u
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,77 +50,93 @@ $loans_list = mysqli_query($conn, "SELECT id, purpose, amount FROM loans WHERE u
         body {
             overflow-x: hidden;
         }
+
         #sidebar {
             min-height: 100vh;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
+
         .sidebar-header {
             padding: 20px;
             background: rgba(0, 0, 0, 0.1);
         }
+
         .sidebar-header h3 {
             color: white;
             margin: 0;
             font-weight: bold;
         }
+
         .nav-link {
             color: rgba(255, 255, 255, 0.8);
             padding: 15px 20px;
             border-left: 3px solid transparent;
             transition: all 0.3s;
         }
+
         .nav-link:hover {
             color: white;
             background: rgba(255, 255, 255, 0.1);
             border-left-color: white;
         }
+
         .nav-link.active {
             color: white;
             background: rgba(255, 255, 255, 0.2);
             border-left-color: white;
         }
+
         .nav-link i {
             width: 25px;
             font-size: 1.2rem;
         }
+
         .user-info {
             padding: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: white;
         }
+
         #content {
             width: 100%;
             padding: 0;
             min-height: 100vh;
             background: #f8f9fa;
         }
+
         .top-navbar {
             background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 15px 30px;
         }
+
         .stats-card {
             transition: transform 0.3s;
         }
+
         .stats-card:hover {
             transform: translateY(-5px);
         }
+
         .payment-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
+
         @media (max-width: 768px) {
             #sidebar {
                 margin-left: -250px;
                 position: fixed;
                 z-index: 999;
             }
+
             #sidebar.active {
                 margin-left: 0;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="d-flex">
         <!-- Sidebar -->
@@ -165,7 +182,9 @@ $loans_list = mysqli_query($conn, "SELECT id, purpose, amount FROM loans WHERE u
                     <ul class="dropdown-menu dropdown-menu-dark">
                         <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profile</a></li>
                         <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Settings</a></li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li><a class="dropdown-item" href="../logout.php"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
                     </ul>
                 </div>
@@ -183,7 +202,7 @@ $loans_list = mysqli_query($conn, "SELECT id, purpose, amount FROM loans WHERE u
                     <h4 class="mb-0">My Payments</h4>
                     <div>
                         <span class="text-muted">
-                            <i class="bi bi-calendar3"></i> 
+                            <i class="bi bi-calendar3"></i>
                             <?php echo date('l, F d, Y'); ?>
                         </span>
                     </div>
@@ -318,12 +337,12 @@ $loans_list = mysqli_query($conn, "SELECT id, purpose, amount FROM loans WHERE u
                                         <label for="amount" class="form-label">Amount *</label>
                                         <div class="input-group">
                                             <span class="input-group-text bg-white">₹</span>
-                                            <input type="number" class="form-control form-control-lg" 
-                                                   id="amount" name="amount" 
-                                                   placeholder="0.00" 
-                                                   step="0.01" 
-                                                   min="1" 
-                                                   required>
+                                            <input type="number" class="form-control form-control-lg"
+                                                id="amount" name="amount"
+                                                placeholder="0.00"
+                                                step="0.01"
+                                                min="1"
+                                                required>
                                         </div>
                                     </div>
 
@@ -342,8 +361,8 @@ $loans_list = mysqli_query($conn, "SELECT id, purpose, amount FROM loans WHERE u
 
                                     <div class="mb-4">
                                         <label for="transaction_id" class="form-label">Transaction/Reference ID</label>
-                                        <input type="text" class="form-control" id="transaction_id" name="transaction_id" 
-                                               placeholder="Enter transaction reference (optional)">
+                                        <input type="text" class="form-control" id="transaction_id" name="transaction_id"
+                                            placeholder="Enter transaction reference (optional)">
                                     </div>
 
                                     <button type="submit" class="btn btn-light btn-lg w-100">
@@ -360,7 +379,7 @@ $loans_list = mysqli_query($conn, "SELECT id, purpose, amount FROM loans WHERE u
                             <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
                                 <h5 class="mb-0"><i class="bi bi-clock-history"></i> Payment History</h5>
                                 <?php if ($stats['pending_count'] > 0): ?>
-                                <span class="badge bg-warning"><?php echo $stats['pending_count']; ?> Pending</span>
+                                    <span class="badge bg-warning"><?php echo $stats['pending_count']; ?> Pending</span>
                                 <?php endif; ?>
                             </div>
                             <div class="card-body p-0">
@@ -382,7 +401,7 @@ $loans_list = mysqli_query($conn, "SELECT id, purpose, amount FROM loans WHERE u
                                                             WHERE user_id = $user_id 
                                                             ORDER BY payment_date DESC";
                                             $history_result = mysqli_query($conn, $history_query);
-                                            
+
                                             if ($history_result && mysqli_num_rows($history_result) > 0) {
                                                 while ($payment = mysqli_fetch_assoc($history_result)) {
                                                     $status_colors = [
@@ -391,14 +410,14 @@ $loans_list = mysqli_query($conn, "SELECT id, purpose, amount FROM loans WHERE u
                                                         'failed' => 'danger'
                                                     ];
                                                     $status_class = $status_colors[$payment['status']] ?? 'secondary';
-                                                    
+
                                                     $type_colors = [
                                                         'investment' => 'primary',
                                                         'loan_repayment' => 'warning',
                                                         'withdrawal' => 'danger'
                                                     ];
                                                     $type_class = $type_colors[$payment['payment_type']] ?? 'secondary';
-                                                    
+
                                                     echo '<tr>';
                                                     echo '<td><strong>#' . htmlspecialchars($payment['transaction_id'] ?? 'TXN' . str_pad($payment['id'], 6, '0', STR_PAD_LEFT)) . '</strong></td>';
                                                     echo '<td><span class="badge bg-' . $type_class . '">' . ucwords(str_replace('_', ' ', $payment['payment_type'])) . '</span></td>';
@@ -431,25 +450,63 @@ $loans_list = mysqli_query($conn, "SELECT id, purpose, amount FROM loans WHERE u
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <h6 class="text-primary"><i class="bi bi-bank"></i> Bank Transfer Details</h6>
-                                        <p class="small mb-2"><strong>Bank Name:</strong> Nodbot Finance Bank</p>
-                                        <p class="small mb-2"><strong>Account Number:</strong> 1234567890</p>
-                                        <p class="small mb-3"><strong>IFSC Code:</strong> NFIN0001234</p>
+                                    <!-- UPI QR Code -->
+                                    <div class="col-md-6 text-center">
+                                        <h6 class="text-dark mb-3"><i class="bi bi-qr-code"></i> Scan to Pay</h6>
+                                        <div class="bg-light p-3 rounded d-inline-block">
+                                            <img src="../assets/images/nodbot-upi.jpg"
+                                                alt="UPI QR Code"
+                                                class="img-fluid"
+                                                style="max-width: 200px; border: 3px solid black; border-radius: 10px;">
+                                        </div>
+                                        <p class="small text-muted mt-2">Scan with any UPI app</p>
                                     </div>
+
+                                    <!-- UPI Details -->
                                     <div class="col-md-6">
                                         <h6 class="text-success"><i class="bi bi-phone"></i> UPI Details</h6>
-                                        <p class="small mb-2"><strong>UPI ID:</strong> nodbot@upi</p>
-                                        <p class="small mb-2"><strong>Phone:</strong> +91 98765 43210</p>
-                                        <p class="small mb-3"><strong>QR Code:</strong> Available at branch</p>
+                                        <div class="bg-light p-3 rounded">
+                                            <p class="small mb-2">
+                                                <strong>UPI ID:</strong>
+                                                <span class="text-primary">9503384706@axl</span>
+                                                <button class="btn btn-sm btn-outline-primary ms-2" onclick="copyUPI()" title="Copy UPI ID">
+                                                    <i class="bi bi-clipboard"></i>
+                                                </button>
+                                            </p>
+                                            <p class="small mb-2"><strong>Phone:</strong> +91 9503384706</p>
+                                            <p class="small mb-0"><strong>Payee Name:</strong> Nodbot Finance</p>
+                                        </div>
+
+                                        <div class="mt-3">
+                                            <h6 class="small text-muted mb-2">Supported UPI Apps:</h6>
+                                            <div class="d-flex gap-2">
+                                                <span class="badge bg-primary">Google Pay</span>
+                                                <span class="badge bg-success">PhonePe</span>
+                                                <span class="badge bg-info">Paytm</span>
+                                                <span class="badge bg-warning text-dark">BHIM</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="alert alert-info mb-0">
-                                    <i class="bi bi-lightbulb"></i> 
+                                <div class="alert alert-info mt-3 mb-0">
+                                    <i class="bi bi-lightbulb"></i>
                                     <strong>Note:</strong> All payments are processed within 24 hours. Please keep your transaction ID for reference.
                                 </div>
                             </div>
                         </div>
+
+                        <script>
+                            // Copy UPI ID function
+                            function copyUPI() {
+                                const upiId = 'nodbot@upi';
+                                navigator.clipboard.writeText(upiId).then(() => {
+                                    alert('UPI ID copied to clipboard: ' + upiId);
+                                }).catch(err => {
+                                    console.error('Failed to copy: ', err);
+                                });
+                            }
+                        </script>
+
                     </div>
                 </div>
             </div>
@@ -469,13 +526,13 @@ $loans_list = mysqli_query($conn, "SELECT id, purpose, amount FROM loans WHERE u
             const loanDiv = document.getElementById('loan_select_div');
             const investmentSelect = document.getElementById('investment_id');
             const loanSelect = document.getElementById('loan_id');
-            
+
             // Hide both first
             investmentDiv.style.display = 'none';
             loanDiv.style.display = 'none';
             investmentSelect.removeAttribute('required');
             loanSelect.removeAttribute('required');
-            
+
             // Show relevant dropdown
             if (this.value === 'investment') {
                 investmentDiv.style.display = 'block';
@@ -485,4 +542,5 @@ $loans_list = mysqli_query($conn, "SELECT id, purpose, amount FROM loans WHERE u
         });
     </script>
 </body>
+
 </html>
